@@ -1,0 +1,3 @@
+rootProject.name = "module_event_dispatcher_apt_processor"
+include ':app'
+include ':apt_processor'
