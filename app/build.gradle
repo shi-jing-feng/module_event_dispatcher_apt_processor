@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -15,6 +16,13 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                // 模块事件分发器 配置 Module 名称
+                arg("MODULE_NAME", project.getName())
+            }
+        }
     }
 
     buildTypes {
@@ -40,5 +48,5 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     // 依赖 module_event_dispatcher_apt_processor 测试远程库是否创建成功
-    implementation "com.github.SJF20:module_event_dispatcher_apt_processor:1.0.0"
+    kapt "com.github.SJF20:module_event_dispatcher_apt_processor:1.0.0"
 }
